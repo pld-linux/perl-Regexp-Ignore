@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _without_tests - do not perform "make test"
+%bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Regexp
@@ -34,7 +34,8 @@ Modu³ Regexp::Ignore - pozwalaj±cy ignorowaæ niechciane fragmenty
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
 %{__make}
-%{!?_without_tests:%{__make} test}
+
+%{?with_tests:%{__make} test}
 
 %{__perl} -pi -e 's:/usr/local/bin/perl:/usr/bin/perl:' examples/speller.pl
 
