@@ -3,8 +3,8 @@
 %bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Regexp
-%define	pnam	Ignore
+%define		pdir	Regexp
+%define		pnam	Ignore
 Summary:	Regexp::Ignore Perl module - ignore unwanted parts of text
 Summary(pl):	Modu³ Perla Regexp::Ignore - ignorowanie niechcianych czê¶ci tekstu
 Name:		perl-Regexp-Ignore
