@@ -1,10 +1,14 @@
+#
+# Conditional build:
+# _without_tests - do not perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Regexp
 %define	pnam	Ignore
 Summary:	Regexp::Ignore perl module - ignore unwanted parts of text
 Summary(pl):	Modu³ perla Regexp::Ignore - ignoruj±cy niechciane czêsci tekstu
 Name:		perl-Regexp-Ignore
-Version:	0.01
+Version:	0.03
 Release:	1
 License:	Artistic or GPL
 Group:		Development/Languages/Perl
@@ -28,6 +32,9 @@ Modu³ Regexp::Ignore - pozwalaj±cy ignorowaæ niechciane fragmenty
 %build
 perl Makefile.PL
 %{__make}
+%{!?_without_tests:%{__make} test}
+
+perl -pi -e 's:/usr/local/bin/perl:/usr/bin/perl:' examples/speller.pl
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -46,4 +53,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README
 %{perl_sitelib}/Regexp/Ignore*.pm
 %{_mandir}/man3/*
-%{_examplesdir}/%{name}-%{version}
+%dir %{_examplesdir}/%{name}-%{version}
+%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*.pl
