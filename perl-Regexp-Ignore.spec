@@ -30,11 +30,11 @@ Modu³ Regexp::Ignore - pozwalaj±cy ignorowaæ niechciane fragmenty
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-perl Makefile.PL
+%{__perl} Makefile.PL
 %{__make}
 %{!?_without_tests:%{__make} test}
 
-perl -pi -e 's:/usr/local/bin/perl:/usr/bin/perl:' examples/speller.pl
+%{__perl} -pi -e 's:/usr/local/bin/perl:/usr/bin/perl:' examples/speller.pl
 
 %install
 rm -rf $RPM_BUILD_ROOT
