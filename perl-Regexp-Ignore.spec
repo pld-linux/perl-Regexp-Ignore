@@ -10,7 +10,8 @@ Summary(pl):	Modu³ Perla Regexp::Ignore - ignorowanie niechcianych czêsci tekstu
 Name:		perl-Regexp-Ignore
 Version:	0.03
 Release:	2
-License:	Artistic or GPL
+# same as perl
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	542ad987adbd6da9d82494f065b45b9d
