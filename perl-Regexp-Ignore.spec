@@ -1,10 +1,10 @@
 #
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
-#
-%include	/usr/lib/rpm/macros.perl
+
 %define		pdir	Regexp
 %define		pnam	Ignore
+%include	/usr/lib/rpm/macros.perl
 Summary:	Regexp::Ignore Perl module - ignore unwanted parts of text
 Summary(pl.UTF-8):	Moduł Perla Regexp::Ignore - ignorowanie niechcianych części tekstu
 Name:		perl-Regexp-Ignore
@@ -15,6 +15,7 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	542ad987adbd6da9d82494f065b45b9d
+URL:		http://search.cpan.org/dist/Regexp-Ignore/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
@@ -25,8 +26,8 @@ Regexp::Ignore - Let us ignore unwanted parts (e.g. tags in markup
 languages as HTML), while parsing text.
 
 %description -l pl.UTF-8
-Moduł Regexp::Ignore - pozwalający ignorować niechciane fragmenty
-(np. znaczniki w językach typu HTML) podczas analizy tekstu.
+Moduł Regexp::Ignore - pozwalający ignorować niechciane fragmenty (np.
+znaczniki w językach typu HTML) podczas analizy tekstu.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -47,7 +48,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -p examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
