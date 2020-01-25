@@ -4,7 +4,6 @@
 
 %define		pdir	Regexp
 %define		pnam	Ignore
-%include	/usr/lib/rpm/macros.perl
 Summary:	Regexp::Ignore Perl module - ignore unwanted parts of text
 Summary(pl.UTF-8):	Moduł Perla Regexp::Ignore - ignorowanie niechcianych części tekstu
 Name:		perl-Regexp-Ignore
